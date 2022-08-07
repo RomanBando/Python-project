@@ -1,0 +1,22 @@
+def choose_move(self, board):
+    for each_possible_move in the current board:
+        new_board = the updated board aftar making the move (deepcopy)
+        board_value = minimax(new_board, self(AIplayer), opponent)
+    return the move with the highest board_value
+
+def minimax(self, board, max_player, min_player):
+    if board is in terminal state:
+        return 1/-1/0 if it is a win/los/draw for the AIplayer
+
+    values = []
+    moves = [] (probably)
+
+    for each each_possible_move for the max_player in the current board
+        new_board = the updated board aftar making the move (deepcopy)
+        board_value = minimax(new_board, min_player, max_player)
+        values.append(board_value)
+
+    if self = max_player:   # AIplayer
+        return max(values)
+    else:
+        return min(values)

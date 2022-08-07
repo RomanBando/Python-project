@@ -1,0 +1,77 @@
+@startuml reversi
+
+class Game {
+    size: int
+    player1: Player
+    player2: Player
+    game_mode: GameMode
+    change_player()
+    make_move()
+    process_move()
+    can_move()
+    check_winner()
+}
+
+class Board {
+    size: int
+    get_move()
+    update_move()
+}
+
+class GameMode {
+    mode: int
+    change_mode()
+}
+
+class Player {
+    counter: int
+    {abstract} make_turn()
+}
+class HumanPlayer {
+    make_turn()
+}
+
+class AIPlayer {
+    make_turn()
+}
+
+HumanPlayer <|-- Player
+AIPlayer <|-- Player
+Game *- Player
+Game *- Board
+Game *- GameMode
+
+abstract class BoardView {
+    board: Board
+    {abstract} draw_board()
+}
+
+class BoardConsoleView {
+    symbols: dictionary
+    print_cell()
+    draw_board()
+}
+
+abstract class GameView {
+    game: Game
+    {abstract} draw_board()
+    {abstract} display_winner()
+}
+
+class GameConsoleView {
+    game: Game
+    draw_board()
+    display_winner()
+}
+
+GameConsoleView <|-- GameView
+BoardConsoleView <|-- BoardView
+
+class GameController {
+    view: GameView
+    model: Game
+    run_game()
+}
+
+GameController - Game
+GameController - GameView
