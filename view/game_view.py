@@ -9,7 +9,7 @@ class GameView(ABC):
 
     @abstractmethod
     def draw_board(self):
-        """This method draws the board in the console
+        """This method draws the board
         """
         pass
 

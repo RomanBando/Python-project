@@ -9,4 +9,6 @@ class BoardView(ABC):
 
     @abstractmethod
     def draw_board(self):
+        """This method draws the board
+        """
         pass

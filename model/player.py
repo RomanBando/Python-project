@@ -10,4 +10,6 @@ class Player:
    
     @abstractmethod
     def make_turn(self):
+        """This method makes the move of the AI Player
+        """
         pass

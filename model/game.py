@@ -35,13 +35,3 @@ class Game:
         """This method makes the player move
         """
         self.board.update_move(row, col, self.curr_player)
-
-    def can_move(self):
-        """This method checks if the player can move
-        """
-        for i in range(self.board.size):
-            for j in range(self.board.size):
-                if len(self.game_mode.process_move(i, j, self.board, self.curr_player)) > 0:
-                    return True
-        return False
-

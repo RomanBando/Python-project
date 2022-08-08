@@ -70,6 +70,7 @@ class ClassicMode(GameMode):
         for i in range(board.size):
             for j in range(board.size):
                 cell = board.get_move(i, j)
+                
                 if cell == player1:
                     player1_score += 1
                 elif cell == player2:
@@ -93,3 +94,13 @@ class ClassicMode(GameMode):
             return game.player1
         else:
             return game.player2
+
+    def can_move(self, board: Board, player: Player):
+        """This method checks if the player can move
+        """
+        for i in range(board.size):
+            for j in range(board.size):
+                if len(self.process_move(i, j, board, player)) > 0:
+                    return True
+
+        return False

@@ -1,4 +1,3 @@
-import string
 from view.board_view import BoardView
 from model.board import Board
 

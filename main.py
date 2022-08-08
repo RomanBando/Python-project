@@ -6,7 +6,7 @@ from model.minimax_AI_player import MinimaxAIPlayer
 from controller.game_controller import GameController
 from model.classic_mode import ClassicMode
 
-model = Game(size=4, player1=HumanPlayer(), player2=MinimaxAIPlayer(), game_mode=ClassicMode())
+model = Game(size=4, player1=HumanPlayer(), player2=MinimaxAIPlayer(8), game_mode=ClassicMode())
 view = GameConsoleView(model)
 controller = GameController(view, model)
 controller.run_game()

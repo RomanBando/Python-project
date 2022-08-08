@@ -35,8 +35,20 @@ class AIPlayer {
     make_turn()
 }
 
+class SimpleAIPlayer {
+    make_turn()
+}
+
+class MinimaxAIPlayer {
+    depth: int
+    make_turn()
+    minimax()
+}
+
 HumanPlayer <|-- Player
 AIPlayer <|-- Player
+SimpleAIPlayer <|-- AIPlayer
+MinimaxAIPlayer <|-- AIPlayer
 Game *- Player
 Game *- Board
 Game *- GameMode
@@ -61,11 +73,14 @@ abstract class GameView {
 class GameConsoleView {
     game: Game
     draw_board()
+    make_turn()
+    pass_turn()
     display_winner()
 }
 
 GameConsoleView <|-- GameView
 BoardConsoleView <|-- BoardView
+BoardConsoleView <|-- GameConsoleView
 
 class GameController {
     view: GameView
