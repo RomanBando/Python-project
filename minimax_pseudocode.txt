@@ -1,3 +1,5 @@
+# minimax
+
 def choose_move(self, board):
     for each_possible_move in the current board:
         new_board = the updated board aftar making the move (deepcopy)

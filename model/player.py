@@ -1,6 +1,8 @@
 from abc import abstractmethod
 
 class Player:
+    """This class reperesents a player of the reversi game
+    """
     counter = 0
 
     def __init__(self) -> None:
