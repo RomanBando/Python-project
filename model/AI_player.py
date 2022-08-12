@@ -5,5 +5,14 @@ class AIPlayer(Player):
         super().__init__()
 
     def make_turn(self):
+        """This method makes the move of the AI Player
+
+        Args:
+            game (Game),
+            game_mode (GameMode)
+
+        Returns:
+            best_move: (row, col)
+        """
         pass
     

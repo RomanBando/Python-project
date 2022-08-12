@@ -16,12 +16,16 @@ class GameConsoleView(GameView):
         self.board_view = BoardConsoleView(game.board)
 
     def draw_board(self):
+        """This method draws the board
+        """
         self.board_view.draw_board()
         scores = self.game.game_mode.check_score(self.game.player1, self.game.player2, self.game.board)
         print(f'Player 1 score: {scores[0]}, Player 2 score: {scores[1]}')
         print(f'Player {self.game.curr_player.id + 1} turn')
 
     def make_turn(self):
+        """This method gets the turn from player
+        """
         if isinstance(self.game.curr_player, HumanPlayer):
             while True:
                 try:
@@ -39,13 +43,31 @@ class GameConsoleView(GameView):
             return self.game.curr_player.make_turn(self.game, self.game.game_mode) 
 
     def pass_turn(self):
+        """This method prints corresponding message if the player can't move
+        """
         if self.game.curr_player.can_move == False:
             print(f'Player {self.game.curr_player.id + 1} can\'t move')
 
     def invalid_move(self):
+        """This method prints corresponding message if the player enters the 
+            invalid move
+        """
         print('Invalid move')
+    
+    def invalid_size(self):
+        """This method prints corresponding message if the board size is incorrect
+        """
+        print('Invalid board size(must be in range 1-99)')
 
     def display_winner(self, player1_score, player2_score, file_path='reversi_scores.txt'):
+        """This method prints which player won the game or if it was a draw and saves the final result
+            in the file
+
+        Args:
+            player1_score,
+            player2_score,
+            file_path (str, optional): Defaults to 'reversi_scores.txt'.
+        """
         today = datetime.today()
         new_format = today.strftime('%d-%m-%Y %H:%M')  
         s = ''

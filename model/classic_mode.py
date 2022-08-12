@@ -14,12 +14,19 @@ class ClassicMode(GameMode):
         """This method validates the player's move and redraws the cells of the board 
             if the move is valid
 
+        Args:
+            row,
+            col,
+            board (Board),
+            player (Player)
+
         Returns:
             list: a list of cells on the board to redraw if the move is valid
             or an empty list if it wasn't
         """
         if board.size <= row or board.size <= col:
             return []
+            
         if board.get_move(row, col) != Board.EMPTY_CELL:
             return []
 
@@ -28,6 +35,7 @@ class ClassicMode(GameMode):
         for i in range(-1,2,1):
             if row + i == -1 or  row + i == board.size:
                 continue
+
             for j in range(-1,2,1):
                 if col + j == -1 or  col + j == board.size:
                     continue
@@ -63,6 +71,14 @@ class ClassicMode(GameMode):
 
     def check_score(self, player1, player2, board: Board):
         """This method returns current score of each player
+
+        Args:
+            player1 (Player),
+            player2 (Player),
+            board (Board)
+
+        Returns:
+            player1_score, player2_score: tuple (scores of both players)
         """
         player1_score = 0
         player2_score = 0
@@ -70,7 +86,7 @@ class ClassicMode(GameMode):
         for i in range(board.size):
             for j in range(board.size):
                 cell = board.get_move(i, j)
-                
+
                 if cell == player1:
                     player1_score += 1
                 elif cell == player2:
@@ -80,6 +96,9 @@ class ClassicMode(GameMode):
 
     def check_winner(self, game: Game):
         """This method checks who won the game
+
+        Args:
+            game (Game)
 
         Returns:
             None: if this was a draw
@@ -97,6 +116,10 @@ class ClassicMode(GameMode):
 
     def can_move(self, board: Board, player: Player):
         """This method checks if the player can move
+
+        Args:
+            board (Board)
+            player (Player)
         """
         for i in range(board.size):
             for j in range(board.size):

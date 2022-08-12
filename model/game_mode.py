@@ -11,6 +11,12 @@ class GameMode(ABC):
         """This method validates the player's move and redraws the cells of the board 
             if the move is valid
 
+        Args:
+            row,
+            col,
+            board (Board),
+            player (Player)
+
         Returns:
             list: a list of cells on the board to redraw if the move is valid
             or an empty list if it wasn't
@@ -20,12 +26,23 @@ class GameMode(ABC):
     @abstractmethod
     def check_score(self):
         """This method returns current score of each player
+
+        Args:
+            player1 (Player),
+            player2 (Player),
+            board (Board)
+
+        Returns:
+            player1_score, player2_score: tuple (scores of both players)
         """
         pass
 
     @abstractmethod
     def check_winner(self):
         """This method checks who won the game
+
+        Args:
+            game (Game)
 
         Returns:
             None: if this was a draw
@@ -37,5 +54,9 @@ class GameMode(ABC):
     @abstractmethod
     def can_move(self):
         """This method checks if the player can move
+
+        Args:
+            board (Board),
+            player (Player)
         """
         pass

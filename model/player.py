@@ -10,6 +10,13 @@ class Player:
    
     @abstractmethod
     def make_turn(self):
-        """This method makes the move of the AI Player
+        """This method makes the move of the Player
+
+        Args:
+            game (Game),
+            game_mode (GameMode)
+
+        Returns:
+            best_move: (row, col)
         """
         pass

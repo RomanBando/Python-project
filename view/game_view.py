@@ -21,19 +21,31 @@ class GameView(ABC):
 
     @abstractmethod
     def pass_turn(self):
-        """This method prints corresponding message if the player can't move
+        """This method shows corresponding message if the player can't move
         """
         pass
 
     @abstractmethod
     def invalid_move(self):
-        """This method prints corresponding message if the player enters the 
+        """This method shows corresponding message if the player enters the 
             invalid move
+        """
+        pass
+
+    @abstractmethod
+    def invalid_size(self):
+        """This method shows corresponding message if the board size is incorrect
         """
         pass
     
     @abstractmethod
     def display_winner(player):
-        """This method informs which player won the game or if it was a draw
+        """This method informs which player won the game or if it was a draw and saves the final result
+            in the file
+
+        Args:
+            player1_score,
+            player2_score,
+            file_path (str, optional): Defaults to 'reversi_scores.txt'.
         """
         pass

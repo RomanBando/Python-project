@@ -28,33 +28,18 @@ class GameController:
                 continue    
             else: 
                 self.model.curr_player.can_move = True
+
+            # asking for a move from player
+            while True:
+                row, col = self.view.make_turn()
+                cells = self.model.game_mode.process_move(row, col, self.model.board, self.model.curr_player)
             
-            row, col = self.view.make_turn()
-            cells = self.model.game_mode.process_move(row, col, self.model.board, self.model.curr_player)
-            a = map(lambda x: (x[0]+1, x[1]+1), cells )
-            print(list(a))
-            if len(cells) == 0:
-                continue 
+                if len(cells) == 0:
+                    self.view.invalid_move()
+                else:
+                    break 
 
             for (x, y) in cells:
                 self.model.make_move(x, y)
         
             self.model.change_player()
-
-        # cells = []
-
-        # while len(cells) == 0:
-        #     try:   
-        #         row, col = self.view.make_turn()
-        #         cells = self.model.game_mode.process_move(row, col, self.model)
-        #         # a = map(lambda x: (x[0]+1, x[1]+1), cells )
-        #         # print(list(a))
-        #         if len(cells) == 0:
-        #             raise TypeError
-        #     except TypeError:
-        #         self.view.invalid_move()
-        #         continue
-        #     else:    
-        #         for (x,y) in cells:
-        #             self.model.make_move(x, y)
-        #         self.model.change_player()

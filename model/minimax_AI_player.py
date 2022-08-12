@@ -18,7 +18,7 @@ class MinimaxAIPlayer(AIPlayer):
         """This method selects the best move the Minimax Ai Player can do
 
         Args:
-            game (Game)
+            game (Game),
             game_mode (GameMode)
 
         Returns:
@@ -51,10 +51,10 @@ class MinimaxAIPlayer(AIPlayer):
         """Minimax algorithm for the AI player
 
         Args:
-            depth
-            board (Board)
-            max_player
-            min_player
+            depth,
+            board (Board),
+            max_player,
+            min_player,
             game_mode (GameMode)
 
         Returns:
